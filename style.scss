@@ -1,0 +1,111 @@
+// ===========================
+// VARIABLES
+// ===========================
+$bg-color: #000000;
+$gold: #d4af37;
+$cell-size: 110px;
+$glow: 0 0 15px rgba(212, 175, 55, 0.6);
+
+// ===========================
+// GLOBAL RESET
+// ===========================
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $bg-color;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Segoe UI", sans-serif;
+    overflow: hidden;
+}
+
+// ===========================
+// FLOATING ANIMATION
+// ===========================
+@keyframes floatBoard {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+// ===========================
+// BOARD STYLING
+// ===========================
+.container {
+    animation: floatBoard 5s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+.grid {
+    border: 3px solid $gold;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+    backdrop-filter: blur(5px);
+
+    .row {
+        display: flex;
+    }
+
+    .col {
+        width: $cell-size;
+        height: $cell-size;
+        border: 2px solid $gold;
+        margin: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 55px;
+        color: $gold;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background: rgba(212, 175, 55, 0.05);
+            box-shadow: $glow;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+}
+
+#winnerBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $gold;
+    font-size: 80px;
+    font-weight: bold;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+    display: none;
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}

@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000000;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+@keyframes floatBoard {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+.container {
+  animation: floatBoard 5s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.grid {
+  border: 3px solid #d4af37;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.grid .row {
+  display: flex;
+}
+.grid .col {
+  width: 110px;
+  height: 110px;
+  border: 2px solid #d4af37;
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 55px;
+  color: #d4af37;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.grid .col:hover {
+  background: rgba(212, 175, 55, 0.05);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+.grid .col:active {
+  transform: scale(0.95);
+}
+
+#winnerBox {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #d4af37;
+  font-size: 80px;
+  font-weight: bold;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+  display: none;
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}/*# sourceMappingURL=style.css.map */
