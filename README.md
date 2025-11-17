@@ -32,12 +32,11 @@ Try it live here:
 ---
 
 ## 📂 Project Structure
-index.html
-style.scss
-style.css
-script.js
-README.md
-
+- index.html
+- style.scss  
+- style.css
+- script.js 
+- README.md
 
 ---
 
